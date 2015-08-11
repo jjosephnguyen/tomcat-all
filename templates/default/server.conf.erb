@@ -21,6 +21,9 @@
 
     <Connector executor="tomcatThreadPool"
                port="<%= node["tomcat-all"]["port"] %>" protocol="HTTP/1.1"
+               compression="on" 
+               compressionMinSize="2048" 
+               compressableMimeType="application/json,text/xml,text/plain" 
                connectionTimeout="20000"
                maxHttpHeaderSize="8192"
                enableLookups="false"
