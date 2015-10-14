@@ -58,7 +58,7 @@
     />
     <% end -%>
 
-    <Connector port="8009" protocol="AJP/1.3" redirectPort="8443" />
+    <Connector port="<%= node["tomcat-all"]["ajp_port"] %>" protocol="AJP/1.3" redirectPort="<%= node["tomcat-all"]["ajpredir_port"] %>" />
 
 
     <Engine name="Catalina" defaultHost="localhost">
