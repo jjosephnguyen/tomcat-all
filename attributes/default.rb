@@ -12,6 +12,8 @@ default['tomcat-all']['port'] = '8080'
 default['tomcat-all']['max_threads'] = '100'
 default['tomcat-all']['min_spare_threads'] = '10'
 default['tomcat-all']['java_opts'] = '-d64 -server -Djava.awt.headless=true'
+default["tomcat-all"]["ajp_port"] = '8009'
+default["tomcat-all"]["ajpredir_port"] = '8443'
 #SSL Connector
 default["tomcat-all"]["ssl_enabled"] = false
 default["tomcat-all"]["ssl_port"] = ''
@@ -41,3 +43,6 @@ default["tomcat-all"]["farm_deploy_tempdir"] = ''
 default["tomcat-all"]["farm_deploy_deploydir"] = ''
 default["tomcat-all"]["farm_deploy_watchdir"] = ''
 default["tomcat-all"]["farm_deploy_watchenabled"] = ''
+
+
+
