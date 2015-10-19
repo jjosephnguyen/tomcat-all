@@ -29,11 +29,11 @@ ark 'tomcat' do
   prefix_root node['tomcat-all']['install_directory']
   prefix_home node['tomcat-all']['install_directory']
   owner node['tomcat-all']['user']
-  notifies :create, 'template[/etc/logrotate.d/tomcat]', :immediately
+  notifies :create, 'template[/etc/logrotate.d/tomcat-smart]', :immediately
 end
 
 # Log rotation (catalina.out)
-template '/etc/logrotate.d/tomcat' do
+template '/etc/logrotate.d/tomcat-smart' do
   source 'logrotate.conf.erb'
   notifies :create, "template[#{node['tomcat-all']['install_directory']}/tomcat/conf/server.xml]", :immediately
 end
@@ -47,11 +47,11 @@ end
 # Tomcat catalina configuration
 template node['tomcat-all']['install_directory'] + "/tomcat/bin/catalina.sh" do
   source 'catalina.conf.erb'
-  notifies :create, "template[/etc/init.d/tomcat]", :immediately
+  notifies :create, "template[/etc/init.d/tomcat-smart]", :immediately
 end
 
 # Tomcat init script configuration
-template '/etc/init.d/tomcat' do
+template '/etc/init.d/tomcat-smart' do
   source 'init.conf.erb'
   mode '0755'
   action :nothing
